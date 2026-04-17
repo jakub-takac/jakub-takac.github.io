@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publications - Jakub Takáč</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    ol { padding-left: 1.5em; }
+    ol li { margin-bottom: 1em; }
+    .paper-title { font-style: italic; }
+    .paper-journal { color: #666; }
+    .paper-links a { margin-right: 0.6em; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jakub Takáč</h1>
+</header>
+
+<p><a href="index.html">← Back</a></p>
+
+<h3>Publications and preprints</h3>
+
+<p><small>Ordering is from newest to oldest by the date the preprint appeared on arXiv.
+On preprints, the indicated year is the year it appeared on arxiv and
+on published papers, the indicated year is the year it was published.</small></p>
+
+<ol id="paper-list"></ol>
+
+<script>
+/*
+  TO ADD A NEW PAPER: prepend a new object to the array below.
+  Numbering is automatic (newest = highest number).
+
+  Fields:
+    title    (string, required)
+    authors  (string, required)  — omit your own name or write it as "J. Takáč"
+    journal  (string, optional)  — leave "" for preprints
+    year     (number, required)
+    arxiv    (string, optional)  — just the ID, e.g. "2301.12345"
+    doi      (string, optional)  — full DOI URL
+*/
+const papers = [
+  {
+    title: "Structure of Metric 1-currents: approximation by normal currents and representation results",
+    authors: "D. Bate, E. Caputo, J. Takáč, P. Valentine, P. Wald",
+    journal: "",
+    year: 2025,
+    arxiv: "2508.08017",
+    doi: ""
+  },
+  {
+    title: " Failure of Lang's Flat Chain Conjecture and non-regularity of the prescribed Jacobian equation",
+    authors: "J. Takáč",
+    journal: "",
+    year: 2025,
+    arxiv: "2506.13718",
+    doi: ""
+  },
+  {
+    title: "Almost compact embeddings between Orlicz and Lorentz spaces",
+    authors: "V. Musil, L. Pick, J. Takáč",
+    journal: "Journal of Functional Analysis, Volume 288, Issue 11, 110859",
+    year: 2025,
+    arxiv: "2410.02495",
+    doi: "https://doi.org/10.1016/j.jfa.2025.110859"
+  },
+  {
+    title: "Typical Lipschitz images of rectifiable metric spaces",
+    authors: "D. Bate, J. Takáč",
+    journal: "J. Reine Angew. Math. Volume 2024 Issue 810 ",
+    year: 2024,
+    arxiv: "2306.07943",
+    doi: "https://doi.org/10.1515/crelle-2024-0004"
+  },
+  {
+    title: "Optimality problems in Orlicz spaces",
+    authors: "V. Musil, L. Pick, J. Takáč",
+    journal: "Advances in Mathematics, Volume 432, 109273",
+    year: 2023,
+    arxiv: "2209.14208",
+    doi: "https://doi.org/10.1016/j.aim.2023.109273"
+  },
+  {
+    title: "Optimality of function spaces for kernel integral operators",
+    authors: "J. Takáč",
+    journal: "Mathematische Nachrichten, Volume 296, Issue 9 pp. 4429-4453",
+    year: 2023,
+    arxiv: "2010.08632",
+    doi: "https://doi.org/10.1002/mana.201900545"
+  }
+];
+
+const list = document.getElementById("paper-list");
+
+papers.forEach(p => {
+  const li = document.createElement("li");
+
+  let html = `<span class="paper-title">${p.title}</span>`;
+  html += `<br>${p.authors} (${p.year})`;
+  if (p.journal) {
+    html += `<br><span class="paper-journal">${p.journal}</span>`;
+  }
+  html += `<br><span class="paper-links">`;
+  if (p.arxiv) html += `<a href="https://arxiv.org/abs/${p.arxiv}" target="_blank">arXiv</a>`;
+  if (p.doi)   html += `<a href="${p.doi}" target="_blank">journal</a>`;
+  html += `</span>`;
+
+  li.innerHTML = html;
+  list.appendChild(li);
+});
+</script>
+
+</body>
+</html>
